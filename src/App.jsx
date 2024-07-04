@@ -1,4 +1,4 @@
-import "normalize.css";
+
 import Footer from "./modules/Footer/Footer";
 import { Goods } from "./modules/Goods/Goods";
 import Header from "./modules/Header/Header";
