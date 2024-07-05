@@ -1,6 +1,8 @@
+import { goodsArray } from "../../../goodsArray"
+import { CartItem } from "../Cartitem/CartItem"
 
 
-const Cart = () => {
+export const Cart = () => {
 	return (
 		<section className="cart cart_open">
 			<div className="cart__container">
@@ -21,39 +23,7 @@ const Cart = () => {
 				<p className="cart__date-delivery">сегодня в 14:00</p>
 
 				<ul className="cart__list">
-					<li className="cart__item"><img className="cart__img"
-						src="https://dull-rose-pawpaw.glitch.me/img/39.jpg"
-						alt="Букет из роз Grand Avalanche (101 шт)" />
-						<h4 className="cart__item-title">Букет из роз Grand Avalanche (101
-							шт)</h4>
-						<div className="cart__counter"><button
-							className="cart__counter-btn">-</button><input
-								className="cart__counter-input" type="number" max="99" min="0"
-								value="1" /><button className="cart__counter-btn">+</button></div>
-						<p className="cart__price">14800&nbsp;₽</p>
-					</li>
-					<li className="cart__item"><img className="cart__img"
-						src="https://dull-rose-pawpaw.glitch.me/img/38.jpg"
-						alt="Букет из тюльпан Dolche vita (51 шт)" />
-						<h4 className="cart__item-title">Букет из тюльпан Dolche vita (51
-							шт)</h4>
-						<div className="cart__counter"><button
-							className="cart__counter-btn">-</button><input
-								className="cart__counter-input" type="number" max="99" min="0"
-								value="2" /><button className="cart__counter-btn">+</button></div>
-						<p className="cart__price">13400&nbsp;₽</p>
-					</li>
-					<li className="cart__item"><img className="cart__img"
-						src="https://dull-rose-pawpaw.glitch.me/img/41.jpg"
-						alt="Букет из роз Grand Mirabel (101 шт)" />
-						<h4 className="cart__item-title">Букет из роз Grand Mirabel (101 шт)
-						</h4>
-						<div className="cart__counter"><button
-							className="cart__counter-btn">-</button><input
-								className="cart__counter-input" type="number" max="99" min="0"
-								value="3" /><button className="cart__counter-btn">+</button></div>
-						<p className="cart__price">63900&nbsp;₽</p>
-					</li>
+					{goodsArray.map((item) => (<CartItem key={item.id} {...item} />))}
 				</ul>
 
 				<div className="cart__footer">
@@ -65,4 +35,3 @@ const Cart = () => {
 	)
 }
 
-export default Cart

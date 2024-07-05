@@ -1,14 +1,15 @@
+import classNames from "classnames"
+import s from "./header.module.scss"
 
-
-const Header = () => {
+export const Header = () => {
 	return (
-		<header className="header">
-			<div className="container header__container">
-				<form className="header__form" action="#">
-					<input className="header__input" type="search" name="search"
+		<header className={classNames('fixed', s.header)}>
+			<div className={classNames('container', s.container)}>
+				<form className={s.form} action="#">
+					<input className={s.input} type="search" name="search"
 						placeholder="Букет из роз" />
 
-					<button className="header__search-button" aria-label="начать поиск">
+					<button className={s.searchButton} aria-label="начать поиск">
 						<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
 							xmlns="http://www.w3.org/2000/svg">
 							<path
@@ -18,13 +19,12 @@ const Header = () => {
 					</button>
 				</form>
 
-				<img className="header__logo" src="/img/logo.svg"
+				<img className={s.logo} src="/img/logo.svg"
 					alt="Логотип Mirano Flower Boutique" />
 
-				<button className="header__cart-button">0</button>
+				<button className={s.cartButton}>0</button>
 			</div>
-		</header>
+		</header >
 	)
 }
 
-export default Header
