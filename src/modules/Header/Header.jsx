@@ -1,7 +1,13 @@
-import classNames from "classnames"
-import s from "./header.module.scss"
+import classNames from "classnames";
+import { useDispatch } from "react-redux";
+import { toggleCart } from "../../redux/cartSlice";
+import s from "./header.module.scss";
 
 export const Header = () => {
+	const dispatch = useDispatch();
+	const handlerCartToggle = () => {
+		dispatch(toggleCart())
+	}
 	return (
 		<header className={classNames('fixed', s.header)}>
 			<div className={classNames('container', s.container)}>
@@ -22,7 +28,7 @@ export const Header = () => {
 				<img className={s.logo} src="/img/logo.svg"
 					alt="Логотип Mirano Flower Boutique" />
 
-				<button className={s.cartButton}>0</button>
+				<button className={s.cartButton} onClick={handlerCartToggle}>0</button>
 			</div>
 		</header >
 	)

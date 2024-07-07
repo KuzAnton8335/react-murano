@@ -14,8 +14,9 @@
 		min-height: 380px;
 		border-radius: 20px;
 	}
+}
 
-	&__image {
+.cardImage {
 		object-fit: cover;
 		width: 100%;
 		height: 359px;
@@ -25,25 +26,25 @@
 		}
 	}
 
-	&__content {
-		padding: 32px 16px;
-		flex-grow: 1;
-		display: flex;
-		flex-direction: column;
-		gap: 16px;
+.cardContent {
+ 		padding: 32px 16px;
+ 		flex-grow: 1;
+ 		display: flex;
+ 		flex-direction: column;
+ 		gap: 16px;
 
-		@include mobile {
-			padding: 16px 12px;
-		}
-	}
+ 		@include mobile {
+ 			padding: 16px 12px;
+ 		}
+ 	}
 
-	&__title {
-		flex-grow: 1;
-		font-weight: 400;
-		font-size: 18px;
-	}
+ .cardTitle {
+ 		flex-grow: 1;
+ 		font-weight: 400;
+ 		font-size: 18px;
+ 	}
 
-	&__footer {
+.cardFooter {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -56,7 +57,7 @@
 		}
 	}
 
-	&__date-delivery {
+.cardDateDelivery {
 		padding-left: 20px;
 		background-image: url("/img/delivery.svg");
 		background-repeat: no-repeat;
@@ -67,8 +68,7 @@
 			font-size: 12px;
 		}
 	}
-
-	&__button {
+.cardButton {
 		border-radius: 32px;
 		padding: 8px 16px;
 		min-width: 120px;
@@ -76,7 +76,6 @@
 		background: $light-orange;
 	}
 
-	&__button-text {
+	.cardButtonText {
 		display: none;
 	}
-}

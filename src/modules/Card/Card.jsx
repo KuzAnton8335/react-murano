@@ -3,15 +3,15 @@ import classNames from "classnames"
 
 export const Card = ({ className, img, title, dateDelivery, price }) => {
 	return (
-		<article className={`${className} card`}>
-			<img className="card__image"
+		<article className={`${className} ${s.card}`}>
+			<img className={s.cardImage}
 				src={img}
 				alt={title} />
-			<div className="card__content">
-				<h3 className="card__title">{title}</h3>
-				<div className="card__footer">
-					<p className="card__date-delivery">{dateDelivery}</p><button
-						className="card__button">{price}&nbsp;₽</button>
+			<div className={s.cardContent}>
+				<h3 className={s.cardTitle}>{title}</h3>
+				<div className={s.cardFooter}>
+					<p className={s.cardDateDelivery}>{dateDelivery}</p><button
+						className={s.cardButton}>{price}&nbsp;₽</button>
 				</div>
 			</div>
 		</article>

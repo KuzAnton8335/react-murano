@@ -5,7 +5,7 @@ import { Cart } from "../Cart/Cart";
 import s from "./goods.module.scss";
 
 export const Goods = () => {
-	// todo:Остановился на секции goods
+
 	return (
 		<section className={s.goods}>
 			<div className={classNames("container", s.container)}>

@@ -1,15 +1,30 @@
-import { goodsArray } from "../../../goodsArray"
-import { CartItem } from "../Cartitem/CartItem"
+import classNames from "classnames";
+import { useDispatch, useSelector } from "react-redux";
+import { goodsArray } from "../../../goodsArray";
+import { toggleCart } from "../../redux/cartSlice";
+import { CartItem } from "../Cartitem/CartItem";
+import s from "./cart.module.scss";
 
 
 export const Cart = () => {
+	// селектор вывода окна корзины
+	const isOpen = useSelector((state) => state.cart.isOpen)
+	// инициализация хука useDispatch через переменную  dispatch
+	const dispatch = useDispatch();
+	// функция закрытия модального окна
+	const handlerCartClose = () => {
+		dispatch(toggleCart())
+	}
+	// вызов окна корзины
+	if (!isOpen) return null;
+	// разметка фрагмента файла html в jsx
 	return (
-		<section className="cart cart_open">
-			<div className="cart__container">
-				<div className="cart__header">
-					<h3 className="cart__title">Ваш заказ</h3>
+		<section className={classNames(s.cart, s.cartOpen)}>
+			<div className={s.cartContainer}>
+				<div className={s.cartHeader}>
+					<h3 className={s.cartTitle}>Ваш заказ</h3>
 
-					<button className="cart__close">
+					<button className="cart__close" onClick={handlerCartClose}>
 						<svg width="28" height="28" viewBox="0 0 28 28" fill="none"
 							xmlns="http://www.w3.org/2000/svg">
 							<rect x="5" y="5.70715" width="1" height="25"
@@ -19,15 +34,12 @@ export const Cart = () => {
 						</svg>
 					</button>
 				</div>
-
-				<p className="cart__date-delivery">сегодня в 14:00</p>
-
-				<ul className="cart__list">
+				<p className={s.cartDateDelivery}>сегодня в 14:00</p>
+				<ul className={s.CartList}>
 					{goodsArray.map((item) => (<CartItem key={item.id} {...item} />))}
 				</ul>
-
-				<div className="cart__footer">
-					<button className="cart__order-btn">Оформить</button>
+				<div className={s.cartFooter}>
+					<button className={s.cartOrderBtn}>Оформить</button>
 					<p className="cart__price cart__price_total">0&nbsp;₽</p>
 				</div>
 			</div>
