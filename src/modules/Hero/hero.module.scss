@@ -11,10 +11,12 @@
 		padding: 40px 0 73px;
 	}
 
-	&__head-group {
+
+}
+
+.headGroup {
 		margin-bottom: 24px;
 	}
-}
 
 .title {
 	font-family: $second-family;
@@ -53,29 +55,30 @@
 	}
 }
 
-.group-image {
+.groupImage {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	gap: calc(24 / 1300 * 100%);
 }
 
-.image {
+.heroImage {
 	object-fit: cover;
 	width: calc(284 / 1300 * 100%);
 	aspect-ratio: 284 / 352;
 	overflow: hidden;
+}
 
-	&_left {
+.heroImageLeft {
 		border-radius: 400px 400px 400px 0;
 	}
 
-	&_center {
+.heroImageCenterCalc {
 		width: calc(680 / 1300 * 100%);
 		aspect-ratio: 680 / 588;
 	}
 
-	&-center {
+.heroImageCenter {
 		width: 100%;
 		height: 100%;
 		background: url("/img/hero@1x.jpg") no-repeat center/cover;
@@ -89,7 +92,6 @@
 		);
 	}
 
-	&_right {
+.heroImageRight {
 		border-radius: 400px 0 400px 400px;
 	}
-}

@@ -1,14 +1,12 @@
 @use "@scss/varibles" as *;
 @use "@scss/media" as *;
 .choices {
-	&__btn {
-	}
+}
 
-	&__box {
-		display: none;
+.choicesBox{
+    display: none;
+ }
 
-		&_open {
-			display: block;
-		}
-	}
+.choicesBoxOpen{
+    display: block;
 }

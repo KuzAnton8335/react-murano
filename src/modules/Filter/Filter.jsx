@@ -1,33 +1,36 @@
-
+import f from"./filter.module.scss";
+import s from "./choices.module.scss";
+import classNames from "classnames";
 
 export const Filter = () => {
+//     !todo:остановился на месте, теперь в фильтре
 	return (
-		<section className="filter">
+		<section className={f.filter}>
 			<h2 className="visually-hidden"></h2>
-			<div className="container">
-				<form className="filter__form">
-					<fieldset className="filter__group">
-						<input className="filter__radio" type="radio" name="type"
+			<div className={classNames("container")}>
+				<form className={f.filterForm}>
+					<fieldset className={f.filterGroup}>
+						<input className={f.filterRadio} type="radio" name="type"
 							value="bouquets" id="flower" defaultChecked />
-						<label className="filter__label filter__label_flower"
+						<label className={classNames (f.filterLabel,f.filterLabelFlower)}
 							htmlFor="flower">Цветы</label>
 
-						<input className="filter__radio" type="radio" name="type" value="toys" id="toys" />
-						<label className="filter__label filter__label_toys"
+						<input className={f.filterRadio} type="radio" name="type" value="toys" id="toys" />
+						<label className={classNames(f.filterLabel,f.filterLabelToys)}
 							htmlFor="toys">Игрушки</label>
 
-						<input className="filter__radio" type="radio" name="type" value="postcards" id="postcard" />
-						<label className="filter__label filter__label_postcard"
+						<input className={f.filterRadio} type="radio" name="type" value="postcards" id="postcard" />
+						<label className={classNames(f.filterLabel,f.filterLabelPostcard)}
 							htmlFor="postcard">Открытки</label>
 					</fieldset>
 
-					<fieldset className="filter__group filter__group_choices">
-						<div className="filter__choices choices">
-							<button className="filter__select choices__btn"
+					<fieldset className={classNames(f.filterGroup,f.filterGroupChoices)}>
+						<div className={classNames(f.filterChoices,s.choices)}>
+							<button className={classNames(f.filterSelect)}
 								type="button">Цена</button>
 
-							<div className="choices__box filter__choices-box">
-								<fieldset className="filter__price">
+							<div className={classNames(s.choicesBox,f.filterChoicesBox)}>
+								<fieldset className={f.filterPrice}>
 									<input className="filter__input-price" type="text" name="minPrice"
 										placeholder="от" />
 									<input className="filter__input-price" type="text" name="maxPrice"

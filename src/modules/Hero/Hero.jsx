@@ -4,13 +4,13 @@ export const Hero = () => {
 	return (
 		<section className={s.hero}>
 			<div className={classNames('container')}>
-				<div className="hero__head-group">
+				<div className={s.headGroup}>
 					<h1 className={s.title}>Авторские букеты</h1>
-					<p className="hero__subtitle">и подарки</p>
+					<p className={s.subtitle}>и подарки</p>
 				</div>
 
-				<figure className="hero__group-image">
-					<picture className="hero__image hero__image_left">
+				<figure className={s.groupImage}>
+					<picture className={classNames(s.heroImage,s.heroImageLeft)}>
 						<source
 							srcSet="/img/hero-left@1x.avif 1x, /img/hero-left@2x.avif 2x"
 							type="image/avif" />
@@ -18,10 +18,11 @@ export const Hero = () => {
 							srcSet="/img/hero-left@1x.webp 1x, /img/hero-left@2x.webp 2x"
 							type="image/webp" />
 						<img src="/img/hero-left@1x.jpg" srcSet="/img/hero-left@2x.jpg"
-							alt="Букет цветов в банке. В бкете ярко-ораньжевые розы, ораньжевые тюльпаны и львиный зев. Дополнительно в композию включены белые цветы и зеленые элементы, придающие букету объем и разнообразие" />
+							alt="Букет цветов в банке. В бкете ярко-ораньжевые розы, ораньжевые тюльпаны и львиный зев.
+							Дополнительно в композию включены белые цветы и зеленые элементы, придающие букету объем и разнообразие" />
 					</picture>
 
-					<svg className="hero__image hero__image_center" role="img"
+					<svg className={classNames(s.heroImage,s.heroImageCenterCalc)} role="img"
 						aria-label="Букет цветов в вазе, включающий нежные розовые розы, розовые хризантемы и другие цветы пастельных цветов, размещенные в беловй вазе в форме головы."
 						width="680" height="588" viewBox="0 0 680 588" fill="none"
 						xmlns="http://www.w3.org/2000/svg"
@@ -32,13 +33,13 @@ export const Hero = () => {
 						</clipPath>
 
 						<foreignObject clipPath="url(#hero)" width="100%" height="100%">
-							<div className="hero__image-center"></div>
+							<div className={s.heroImageCenter}></div>
 						</foreignObject>
 
 					</svg>
 
 
-					<picture className="hero__image hero__image_right">
+					<picture className={classNames(s.heroImage,s.heroImageRight)}>
 						<source
 							srcSet="/img/hero-right@1x.avif 1x, /img/hero-right@2x.avif 2x"
 							type="image/avif" />
@@ -46,7 +47,8 @@ export const Hero = () => {
 							srcSet="/img/hero-right@1x.webp 1x, /img/hero-right@2x.webp 2x"
 							type="image/webp" />
 						<img src="/img/hero-right@1x.jpg" srcSet="/img/hero-right@2x.jpg 2x"
-							alt="Букет цветов в банке. В бкете ярко-ораньжевые розы, ораньжевые тюльпаны и львиный зев. Дополнительно в композию включены белые цветы и зеленые элементы, придающие букету объем и разнообразие" />
+							alt="Букет цветов в банке. В бкете ярко-ораньжевые розы, ораньжевые тюльпаны и львиный зев.
+							Дополнительно в композию включены белые цветы и зеленые элементы, придающие букету объем и разнообразие" />
 					</picture>
 				</figure>
 			</div>
