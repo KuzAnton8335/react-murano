@@ -5,7 +5,6 @@ import { Cart } from "../Cart/Cart";
 import s from "./goods.module.scss";
 
 export const Goods = () => {
-
 	return (
 		<section className={s.goods}>
 			<div className={classNames("container", s.container)}>
@@ -19,9 +18,7 @@ export const Goods = () => {
 						))}
 					</ul>
 				</div>
-
 				<Cart />
-
 			</div>
 		</section >
 	)

@@ -2,6 +2,7 @@ import classNames from "classnames";
 import { useDispatch, useSelector } from "react-redux";
 import { goodsArray } from "../../../goodsArray";
 import { toggleCart } from "../../redux/cartSlice";
+import { openModal } from "../../redux/orderSlice";
 import { CartItem } from "../Cartitem/CartItem";
 import s from "./cart.module.scss";
 
@@ -15,6 +16,11 @@ export const Cart = () => {
 	const handlerCartClose = () => {
 		dispatch(toggleCart())
 	}
+	// функция откыртия модального окна
+	const handlerOpenOrder = () => {
+		dispatch(openModal());
+	}
+
 	// вызов окна корзины
 	if (!isOpen) return null;
 	// разметка фрагмента файла html в jsx
@@ -39,7 +45,7 @@ export const Cart = () => {
 					{goodsArray.map((item) => (<CartItem key={item.id} {...item} />))}
 				</ul>
 				<div className={s.cartFooter}>
-					<button className={s.cartOrderBtn}>Оформить</button>
+					<button className={s.cartOrderBtn} onClick={handlerOpenOrder}>Оформить</button>
 					<p className="cart__price cart__price_total">0&nbsp;₽</p>
 				</div>
 			</div>

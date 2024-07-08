@@ -1,8 +1,16 @@
 import classNames from "classnames";
+import { useState } from "react";
 import { Choices } from "../Choices/Choices";
 import f from "./filter.module.scss";
 
 export const Filter = () => {
+	// задаем состояние при помощи хука useState
+	const [OpenChoice, setOpenChoice] = useState(null);
+	// изменяем состоояние при помощи функции handleOpen
+	const handleChoicesToggle = (index) => {
+		setOpenChoice(OpenChoice === index ? null : index);
+	}
+
 	return (
 		<section className={f.filter}>
 			<h2 className="visually-hidden"></h2>
@@ -24,7 +32,7 @@ export const Filter = () => {
 					</fieldset>
 
 					<fieldset className={classNames(f.filterGroup, f.filterGroupChoices)}>
-						<Choices buttonLabel="Цена">
+						<Choices buttonLabel="Цена" isOpen={OpenChoice === 0} onToggle={() => handleChoicesToggle(0)}>
 							<fieldset className={f.filterPrice}>
 								<input className={f.filterInputPrice} type="text" name="minPrice"
 									placeholder="от" />
@@ -33,7 +41,7 @@ export const Filter = () => {
 							</fieldset>
 						</Choices>
 
-						<Choices buttonLabel="Тип товара">
+						<Choices buttonLabel="Тип товара" isOpen={OpenChoice === 1} onToggle={() => handleChoicesToggle(1)}>
 							<ul>
 								<li className={f.filterTypeItem}>
 									<button className={f.filterTypeButton}
