@@ -5,10 +5,10 @@ import f from "./filter.module.scss";
 
 export const Filter = () => {
 	// задаем состояние при помощи хука useState
-	const [OpenChoice, setOpenChoice] = useState(null);
+	const [openChoice, setOpenChoice] = useState(null);
 	// изменяем состоояние при помощи функции handleOpen
 	const handleChoicesToggle = (index) => {
-		setOpenChoice(OpenChoice === index ? null : index);
+		setOpenChoice(openChoice === index ? null : index);
 	}
 
 	return (
@@ -32,7 +32,9 @@ export const Filter = () => {
 					</fieldset>
 
 					<fieldset className={classNames(f.filterGroup, f.filterGroupChoices)}>
-						<Choices buttonLabel="Цена" isOpen={OpenChoice === 0} onToggle={() => handleChoicesToggle(0)}>
+						<Choices buttonLabel="Цена"
+							isOpen={openChoice === 0}
+							onToggle={() => handleChoicesToggle(0)}>
 							<fieldset className={f.filterPrice}>
 								<input className={f.filterInputPrice} type="text" name="minPrice"
 									placeholder="от" />
@@ -41,7 +43,7 @@ export const Filter = () => {
 							</fieldset>
 						</Choices>
 
-						<Choices buttonLabel="Тип товара" isOpen={OpenChoice === 1} onToggle={() => handleChoicesToggle(1)}>
+						<Choices buttonLabel="Тип товара" isOpen={openChoice === 1} onToggle={() => handleChoicesToggle(1)}>
 							<ul>
 								<li className={f.filterTypeItem}>
 									<button className={f.filterTypeButton}
