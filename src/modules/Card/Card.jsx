@@ -1,7 +1,13 @@
-import s from "./card.module.scss"
-import classNames from "classnames"
+import { useDispatch } from "react-redux";
+import { addItemToCart } from "../../redux/cartSlice";
+import s from "./card.module.scss";
 
-export const Card = ({ className, img, title, dateDelivery, price }) => {
+export const Card = ({ className, id, img, title, dateDelivery, price }) => {
+	const dispatch = useDispatch();
+
+	const handlerAddToCart = () => {
+		dispatch(addItemToCart({ id, img, title, dateDelivery, price }))
+	}
 	return (
 		<article className={`${className} ${s.card}`}>
 			<img className={s.cardImage}
@@ -10,8 +16,9 @@ export const Card = ({ className, img, title, dateDelivery, price }) => {
 			<div className={s.cardContent}>
 				<h3 className={s.cardTitle}>{title}</h3>
 				<div className={s.cardFooter}>
-					<p className={s.cardDateDelivery}>{dateDelivery}</p><button
-						className={s.cardButton}>{price}&nbsp;₽</button>
+					<p className={s.cardDateDelivery}>{dateDelivery}</p>
+					<button
+						className={s.cardButton} onClick={handlerAddToCart}>{price}&nbsp;₽</button>
 				</div>
 			</div>
 		</article>

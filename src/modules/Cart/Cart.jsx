@@ -1,6 +1,5 @@
 import classNames from "classnames";
 import { useDispatch, useSelector } from "react-redux";
-import { goodsArray } from "../../../goodsArray";
 import { toggleCart } from "../../redux/cartSlice";
 import { openModal } from "../../redux/orderSlice";
 import { CartItem } from "../Cartitem/CartItem";
@@ -10,6 +9,8 @@ import s from "./cart.module.scss";
 export const Cart = () => {
 	// селектор вывода окна корзины
 	const isOpen = useSelector((state) => state.cart.isOpen)
+	// контейнер содержимого корзины из LocalStorage
+	const items = useSelector((state) => state.cart.items)
 	// инициализация хука useDispatch через переменную  dispatch
 	const dispatch = useDispatch();
 	// функция закрытия модального окна
@@ -42,7 +43,7 @@ export const Cart = () => {
 				</div>
 				<p className={s.cartDateDelivery}>сегодня в 14:00</p>
 				<ul className={s.CartList}>
-					{goodsArray.map((item) => (<CartItem key={item.id} {...item} />))}
+					{items.map((item) => (<CartItem key={item.id} {...item} />))}
 				</ul>
 				<div className={s.cartFooter}>
 					<button className={s.cartOrderBtn} onClick={handlerOpenOrder}>Оформить</button>
