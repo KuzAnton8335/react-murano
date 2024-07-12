@@ -8,6 +8,7 @@ export const Card = ({ className, id, img, title, dateDelivery, price }) => {
 	const handlerAddToCart = () => {
 		dispatch(addItemToCart({ id, img, title, dateDelivery, price }))
 	}
+
 	return (
 		<article className={`${className} ${s.card}`}>
 			<img className={s.cardImage}

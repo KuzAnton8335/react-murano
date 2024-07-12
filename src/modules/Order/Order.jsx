@@ -7,7 +7,7 @@ export const Order = () => {
 	// хук useDispath
 	const dispatch = useDispatch();
 	// условие для открытия модального окна
-	const isOrder = false;
+	const isOrderReady = false;
 	// состояния модального окна при помощи хука useSelector (state) "react-redux"
 	const isOpen = useSelector(state => state.order.isOpen);
 	// функция для закрытия модального окна
@@ -24,7 +24,7 @@ export const Order = () => {
 	return (
 		<div className={s.order} onClick={handlerClose}>
 			<div className={s.orderWrapper} onClick={(e) => e.stopPropagation()}>
-				{isOrder ?
+				{isOrderReady ?
 					(<>
 						<h2 className={s.orderTitle}>Заказ оформлен!</h2>
 						<p className={s.orderId}>Ваш номер заказа:

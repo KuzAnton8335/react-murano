@@ -11,11 +11,20 @@ const cartSlice = createSlice({
 	name: "cart",
 	initialState,
 	reducers: {
+		// функция для открытия модального окна корзины
 		toggleCart(state) {
 			state.isOpen = !state.isOpen;
 		},
+		//  функция добавления данных в LocalStorage для корзины
 		addItemToCart(state, action) {
-			console.log(action);
+			const { id, img, title, dateDelivery, price, count = 1 } = action.payload;
+			const existingItem = state.items.find((item) => item.id === id);
+			if (existingItem) {
+				existingItem.count = count;
+			} else {
+				state.items.push({ id, img, title, dateDelivery, price, count });
+			}
+			localStorage.setItem("cartItems", JSON.stringify(state.items))
 		}
 	}
 })
