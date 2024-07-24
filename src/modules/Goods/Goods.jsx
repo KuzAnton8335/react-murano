@@ -1,12 +1,20 @@
 import classNames from "classnames";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { fetchGoods } from "../../redux/fetchGoods";
 import { Card } from "../Card/Card";
 import { Cart } from "../Cart/Cart";
 import s from "./goods.module.scss";
-// ?состановился на 1:58 (загрузить на render для api вызова)
+
 export const Goods = () => {
 	const dispatch = useDispatch();
-	const { items: goods } = useSelector((state) => state.goods);
+	const { items: goods, status: goodsStatus, error } = useSelector((state) => state.goods);
+
+	useEffect(() => {
+		if (goodsStatus === 'idle') {
+			dispatch(fetchGoods());
+		}
+	}, [dispatch, goodsStatus])
 
 	return (
 		<section className={s.goods}>
